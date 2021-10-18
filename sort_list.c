@@ -145,12 +145,12 @@ void *sorter(void *arguments)
             pthread_barrier_wait(&start_barrier);
             my_list_size = *(start_ind+id+1)-*(start_ind+id);
             qsort(&list[*(start_ind+id)], my_list_size, sizeof(int), compare_int);
-            printf("output of qsort on id %d\n", id);
-            for(i=*(start_ind+id);i<*(start_ind+id+1);i++)
-            {
-                printf("%d, ",list[i]);
-            }
-            printf("\n");
+            //printf("output of qsort on id %d\n", id);
+            //for(i=*(start_ind+id);i<*(start_ind+id+1);i++)
+            //{
+            //    printf("%d, ",list[i]);
+            //}
+            //printf("\n");
             pthread_barrier_wait(&stop_barrier); 
         }
         else
@@ -167,7 +167,7 @@ void *sorter(void *arguments)
             my_write_idx = *(start_ind+my_write_blk);
 
             idx = my_search_idx;
-            printf("Current level is %d and my_id is %d  my_search_starts at %d ends at %d  my_write_blk is %d my_write_idx is %d\n",current_level,id,my_search_idx, my_search_idx_max, my_write_blk, my_write_idx);
+            //printf("Current level is %d and my_id is %d  my_search_starts at %d ends at %d  my_write_blk is %d my_write_idx is %d\n",current_level,id,my_search_idx, my_search_idx_max, my_write_blk, my_write_idx);
             my_search_count = 0;
 
             if (my_search_blk > my_own_blk) 
@@ -331,7 +331,7 @@ int main(int argc, char *argv[]) {
 
     error = 0; 
     for (j = 1; j < list_size; j++) {
-        printf("Your val = %d expected %d\n",list[j],list_orig[j] );
+        //printf("Your val = %d expected %d\n",list[j],list_orig[j] );
 	if (list[j] != list_orig[j]) error = 1; 
     }
 
